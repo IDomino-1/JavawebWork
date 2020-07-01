@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<c3p0-config>
+  <default-config>
+    <property name="driverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+<!--    <property name="jdbcUrl">jdbc:mysql://localhost:3306/InfoManager?useSSL=false</property>-->
+    <property name="jdbcUrl">jdbc:sqlserver://34.92.207.4:1433;DatabaseName=MyDataBase</property>
+    <property name="user">sa</property>
+    <property name="password">sdyuif23^^&amp;*(**2564587</property>
+    <property name="initialPoolSize">10</property>
+    <property name="maxPoolSize">30</property>
+    <property name="checkoutTimeout">3000</property>
+  </default-config>
+  <named-config name="otherc3p0"> 
+  </named-config>
+
+  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+    <!--定义所有连接测试都执行的测试语句。在使用连接测试的情况下这个显著提高测试速度。默认null-->
+    <property name="preferredTestQuery" value="select 1" />
+    <!--每6个小时检查所有连接池中的空闲连接，这个值一定要小于MySQL的wait_timeout时间，默认为8小时。默认0 -->
+    <property name="idleConnectionTestPeriod" value="21600"/>
+  </bean>
+</c3p0-config>
